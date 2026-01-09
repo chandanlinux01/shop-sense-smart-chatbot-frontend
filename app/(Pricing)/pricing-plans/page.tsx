@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { Switch } from "@/components/ui/Switch";
 import { cn } from "@/lib/utils";
 
 interface PricingFeature {
@@ -88,17 +89,11 @@ const PricingPage = () => {
 
                     {/* Toggle */}
                     <div className="text-border flex justify-end items-center gap-3 text-sm font-semibold text-foreground pr-4 sm:pr-12 lg:pr-32">
-                        <div
-                            className="relative w-12 h-6 bg-[#009ca6] rounded-full cursor-pointer p-1 transition-colors"
-                            onClick={() => setIsYearly(!isYearly)}
-                        >
-                            <div
-                                className={cn(
-                                    "bg-white w-4 h-4 rounded-full shadow-md transform transition-transform duration-300",
-                                    isYearly ? "translate-x-6" : "translate-x-0"
-                                )}
-                            />
-                        </div>
+                        <Switch
+                            checked={isYearly}
+                            onCheckedChange={setIsYearly}
+                            className="scale-125 data-[state=unchecked]:bg-gray-200 data-[state=checked]:bg-primary"
+                        />
                         <span>Monthly / Yearly</span>
                     </div>
                 </div>
@@ -122,12 +117,12 @@ const PricingCard = ({ tier }: { tier: PricingTier }) => {
             className={cn(
                 "relative rounded-2xl p-8 flex flex-col transition-all duration-300",
                 isHighlighted
-                    ? "bg-[#01A1A8] text-white shadow-xl transform md:-translate-y-4 z-10"
+                    ? "bg-primary text-white shadow-xl transform md:-translate-y-4 z-10"
                     : "bg-white text-gray-900 shadow-lg border border-gray-100"
             )}
         >
             {tier.recommended && (
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-white text-[#01A1A8] text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider">
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-white text-primary text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider">
                     Recommended
                 </div>
             )}
@@ -150,7 +145,7 @@ const PricingCard = ({ tier }: { tier: PricingTier }) => {
                     <li key={idx} className="flex items-center gap-3 text-sm">
                         <div className={cn(
                             "flex items-center justify-center w-5 h-5 rounded-sm",
-                            isHighlighted ? "text-white" : "text-[#01A1A8]"
+                            isHighlighted ? "text-white" : "text-primary"
                         )}>
                             <CheckSquareIcon checked={feature.included} className="w-5 h-5" />
                         </div>
@@ -162,7 +157,7 @@ const PricingCard = ({ tier }: { tier: PricingTier }) => {
 
                 {/* Visual filler for not included items if needed, but design shows all checks */}
                 <li className="flex items-center gap-3 text-sm font-bold cursor-pointer mt-4">
-                    <span className={cn("text-xs font-bold hover:underline", isHighlighted ? "text-white" : "text-[#01A1A8]")}>
+                    <span className={cn("text-xs font-bold hover:underline", isHighlighted ? "text-white" : "text-primary")}>
                         Read More
                     </span>
                 </li>
@@ -174,7 +169,7 @@ const PricingCard = ({ tier }: { tier: PricingTier }) => {
                     "w-full rounded-lg py-6 font-bold text-base transition-colors border",
                     isHighlighted
                         ? "bg-black text-white hover:bg-gray-900 border-transparent"
-                        : "bg-white text-[#01A1A8] border-[#01A1A8] hover:bg-[#F0FEFF]"
+                        : "bg-white text-primary border-primary hover:bg-card-bg-highlight"
                 )}
             >
                 {tier.buttonText}

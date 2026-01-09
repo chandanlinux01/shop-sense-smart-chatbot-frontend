@@ -8,7 +8,7 @@ import { Lock } from "lucide-react";
 
 const PaymentSelectionPage = () => {
     return (
-        <div className="min-h-screen bg-card-bg-highlight py-12 px-4 sm:px-6 lg:px-8 font-sans">
+        <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8 font-sans">
             <div className="max-w-6xl mx-auto space-y-8">
                 {/* Header */}
                 <div className="space-y-4">
@@ -101,7 +101,7 @@ const PaymentSelectionPage = () => {
 
                             <div className="space-y-4 mb-6">
                                 <div className="flex justify-between items-center text-sm">
-                                    <span className="text-gray-600">Your Plan: <span className="text-[#01A1A8] font-semibold">Pro Plan</span></span>
+                                    <span className="text-gray-600">Your Plan: <span className="text-primary font-semibold">Pro Plan</span></span>
                                     <span className="font-semibold text-gray-900">$29.99 / mo</span>
                                 </div>
                                 <div className="flex justify-between items-center text-sm border-b border-gray-100 pb-4">
@@ -115,7 +115,7 @@ const PaymentSelectionPage = () => {
                             </div>
 
                             <Button
-                                className="w-full bg-[#01A1A8] hover:bg-[#008c93] text-white font-bold py-6 rounded-lg mb-6"
+                                className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-6 rounded-lg mb-6"
                             >
                                 Start Subscription
                             </Button>
@@ -127,9 +127,9 @@ const PaymentSelectionPage = () => {
 
                             <div className="text-center text-xs text-gray-500 leading-relaxed">
                                 By confirming your subscription, you agree to our{' '}
-                                <Link href="#" className="text-[#01A1A8] hover:underline">Terms of Service</Link>
+                                <Link href="#" className="text-primary hover:underline">Terms of Service</Link>
                                 {' '}and{' '}
-                                <Link href="#" className="text-[#01A1A8] hover:underline">Privacy Policy.</Link>
+                                <Link href="#" className="text-primary hover:underline">Privacy Policy.</Link>
                             </div>
                         </div>
                     </div>

@@ -78,7 +78,7 @@ const ForgotPasswordPage = () => {
 
 
             {/* Form Side */}
-            <div className="flex-1 flex flex-col items-center justify-center p-6 sm:p-12 lg:p-20 bg-white dark:bg-zinc-950">
+            <div className="flex-1 flex flex-col items-center justify-center p-6 sm:p-12 lg:p-20 bg-background">
                 <div className="w-full max-w-[500px] space-y-6 p-6 card-border-shadow">
                     <h1 className="text-2xl font-bold tracking-tight text-foreground text-center">
                         Forgot your password
