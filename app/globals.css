@@ -5,6 +5,7 @@
   --foreground: #171717;
 
   /* Primary & Secondary Colors */
+
   --primary: #01A1A8;
   --primary-foreground: #ffffff;
   --secondary: #0eced3;
@@ -21,7 +22,8 @@
   --accent-foreground: #18181b;
   --destructive: #ef4444;
   --destructive-foreground: #fafafa;
-  --border: #e4e4e7;
+  /* --border: #e4e4e7; */
+  --border: #27272a;
   --input: #e4e4e7;
   --ring: #01A1A8;
 }
@@ -74,7 +76,8 @@
     --accent-foreground: #fafafa;
     --destructive: #7f1d1d;
     --destructive-foreground: #fafafa;
-    --border: #27272a;
+    /* --border: #27272a; */
+    --border: #e4e4e7;
     --input: #27272a;
     --ring: #0eced3;
   }
@@ -84,4 +87,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.shop-sense-text {
+  background: linear-gradient(to right, #0eced3, #01A1A8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-border-shadow {
+  border: 1px solid var(--border);
+  /* light gray */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }

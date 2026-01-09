@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Checkbox } from "@/components/ui/Checkbox";
 import { useState } from "react";
 import { loginAction } from "@/actions/auth.actions";
 import { useRouter } from "next/navigation";
@@ -14,7 +13,7 @@ import { GlobalClientLoader } from "@/components/ui/Loading";
 
 import { toast } from "sonner";
 
-const LoginPage = () => {
+const ForgotPasswordPage = () => {
     const router = useRouter();
     const [agree, setAgree] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
@@ -50,7 +49,7 @@ const LoginPage = () => {
                 toast.success("Welcome back! Login successful.");
                 // Token is already securely stored in http-only cookie by server action
                 // No need to store it in localStorage anymore.
-                router.push('/pricing-plans');
+                router.push('/');
                 router.refresh(); // Refresh to ensure Server Components pick up the new cookie
             } else {
                 toast.error(result.message);
@@ -79,73 +78,36 @@ const LoginPage = () => {
 
 
             {/* Form Side */}
-            <div className="flex-1 flex flex-col items-center justify-center p-6 sm:p-12 lg:p-20 bg-background">
-                <div className="w-full max-w-[440px] space-y-6">
-                    {/* Header */}
-                    <div className="flex flex-col items-center text-center md:text-left space-y-2">
-                        <div className="relative w-10 h-10 mb-2">
-                            <Image
-                                src="/images/shop_sense_logo.png"
-                                alt="Logo"
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
-
-                        <h1 className="flex items-baseline gap-1 text-lg sm:text-2xl font-bold tracking-tight text-foreground">
-                            <span className="text-xl sm:text-2xl">Login with</span>
-
-                            <span className="font-bold shop-sense-text text-xl sm:text-2xl">
-                                ShopSense AI
-                            </span>
-                        </h1>
-
-
-
-                    </div>
-
-
+            <div className="flex-1 flex flex-col items-center justify-center p-6 sm:p-12 lg:p-20 bg-white dark:bg-zinc-950">
+                <div className="w-full max-w-[500px] space-y-6 p-6 card-border-shadow">
+                    <h1 className="text-2xl font-bold tracking-tight text-foreground text-center">
+                        Forgot your password
+                    </h1>
                     {/* Form */}
-                    <form className="space-y-4 border border-border rounded-lg p-6" onSubmit={handleSubmit}>
+                    <form className="space-y-4" onSubmit={handleSubmit}>
                         <div className="space-y-2">
                             <Input
-                                label="Email"
+                                label="Check your email"
                                 name="email"
                                 placeholder="name@company.com"
-                                type="email"
+                                type="number"
                                 required
                                 value={loginDetails.email}
                                 onChange={handleInputChange}
                                 className="h-12"
                             />
-                            <Input
-                                label="Password"
-                                name="password"
-                                placeholder="••••••••"
-                                type="password"
-                                required
-                                value={loginDetails.password}
-                                onChange={handleInputChange}
-                                className="h-12"
-                            />
                         </div>
 
-                        <div className="text-foreground flex items-center justify-end">
+                        <div className="flex gap-4 text-foreground flex items-center justify-end">
+                            <Link href="/login" className="text-sm font-medium text-primary hover:underline">
+                                Login
+                            </Link>
                             <Link href="/forgot-password" className="text-sm font-medium text-primary hover:underline">
-                                Forgot your password?
+                                Resend code
                             </Link>
                         </div>
 
                         <div className="space-y-3 pt-2">
-                            <div className="flex items-start space-x-2">
-                                <Checkbox
-                                    id="terms-check"
-                                    checked={agree}
-                                    onCheckedChange={(checked) => setAgree(checked as boolean)}
-                                    label="By creating an account, you agree to our Terms and Conditions"
-                                    className="border-zinc-300 dark:border-zinc-700 mt-1"
-                                />
-                            </div>
                             <Button
                                 variant="primary"
                                 shape="pill"
@@ -154,9 +116,9 @@ const LoginPage = () => {
                                 disabled={loading}
                             >
                                 {loading ? (
-                                    <GlobalClientLoader message="Logging in..." />
+                                    <GlobalClientLoader message="Sending OTP..." />
                                 ) : (
-                                    "Log in"
+                                    "Send email"
                                 )}
                             </Button>
                         </div>
@@ -167,4 +129,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default ForgotPasswordPage;
