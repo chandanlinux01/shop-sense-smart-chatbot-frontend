@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 
-// 1. Basic Primitive (Jo tumhare paas pehle se hai)
 interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export function Skeleton({ className, ...props }: SkeletonProps) {

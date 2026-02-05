@@ -1,10 +1,10 @@
 // store/useUserStore.ts
 import { create } from 'zustand';
-import { userDetails } from '@/types/user';
+import { UserDetails } from '@/types/user';
 
 interface UserState {
-    user: userDetails | null;
-    setUser: (user: userDetails) => void;
+    user: UserDetails | null;
+    setUser: (user: UserDetails) => void;
     clearUser: () => void;
 }
 

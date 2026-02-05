@@ -8,6 +8,7 @@ class UserService {
         try {
             // Interceptor automatically adds the Authorization header
             const response = await axiosInstance.get<UserResponse>('/auth/user-details');
+            console.log("response", response)
             return {
                 success: true,
                 message: response.data.message || 'Profile fetched successfully',

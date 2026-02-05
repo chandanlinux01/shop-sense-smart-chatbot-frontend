@@ -1,5 +1,5 @@
 import axiosInstance from '@/lib/axios';
-import { LoginRequest, LoginResponse, ForgotPasswordRequest, ChangePasswordRequest, ForgotPasswordResponse, ChangePasswordResponse, UserResponse } from '@/types/auth';
+import { LoginRequest, LoginResponse, ForgotPasswordRequest, ChangePasswordRequest, ForgotPasswordResponse, ChangePasswordResponse } from '@/types/auth';
 import { handleApiError } from '@/lib/handle-error';
 import { ApiResponse } from '@/types/common';
 

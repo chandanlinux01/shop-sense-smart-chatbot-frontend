@@ -1,15 +1,13 @@
-import { userDetails } from "./user";
+import { UserDetails } from "./user";
 import { BaseResponse, DynamicResponse } from "./common";
 
 export interface LoginResponse extends BaseResponse {
     access_token: string;
     token_type: string;
-    user_details: userDetails;
+    user_details: UserDetails;
 }
 
-export interface UserResponse extends BaseResponse {
-    user_details: userDetails;
-}
+export type UserResponse = BaseResponse & UserDetails;
 
 export interface LoginRequest {
     email: string;

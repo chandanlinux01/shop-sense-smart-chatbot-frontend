@@ -52,15 +52,15 @@ export function Sidebar({ className }: SidebarProps) {
     },
     {
       title: "Product Recommendations",
-      href: "/recommendations",
+      href: "/product-recommendations",
       icon: Sparkles,
-      active: pathname === "/recommendations",
+      active: pathname === "/product-recommendations",
     },
     {
       title: "API Integrations",
-      href: "/integrations",
+      href: "/api-integrations",
       icon: PlugZap,
-      active: pathname === "/integrations",
+      active: pathname === "/api-integrations",
     },
     {
       title: "Conversations",
@@ -146,17 +146,6 @@ export function Sidebar({ className }: SidebarProps) {
               {!isCollapsed && <span>{item.title}</span>}
             </Link>
           ))}
-          <Link
-            href="/logout"
-            className={cn(
-              "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-destructive/10 hover:text-destructive",
-              "text-muted-foreground",
-              isCollapsed && "justify-center",
-            )}
-          >
-            <LogOut className="h-5 w-5" />
-            {!isCollapsed && <span>Logout</span>}
-          </Link>
         </nav>
       </div>
     </div>
